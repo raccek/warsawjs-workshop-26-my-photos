@@ -2,16 +2,28 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<<meta name="viewport" content="width=device-width initial-scale=1.0" >
+		<meta name="viewport" content="width=device-width initial-scale=1.0" >
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>WarsawJS Workshop #26</title>
 		<link rel="stylesheet" href="">
 
+		<script src="js/fetch.js"></script>
+
 	</head>
 	<body>
-		<div>
-			
+		<div id="images-list"></div>
+		
+		<img src="./images/prev.png" class="left" /> 
+		<img src="./images/next.png" class="right" />
+		<img class="image-slide" src="" alt="" />
+
+		<div class="container">
+			<input id="search" type="text" placeholder="Search images" />
+			<button id="submit" onclick="fetchFlikrPhotos()">Submit</button>
+			<div id="outputDiv"></div>
 		</div>
+
+
 		<script src="index.js"></script>
 	</body>
 </html>
