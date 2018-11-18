@@ -10,8 +10,8 @@ function displayImages() {
 	for(; i < length; i++){
 		let img = new Image();
 		img.src = imagesList[i];
-		img.style.width = '180px';
-		img.style.height = '120px';
+		img.style.width = '150px';
+		img.style.height = '100px';
 		console.log(img.src);
 		document.getElementById('images-list').appendChild(img);
 	}
@@ -19,6 +19,8 @@ function displayImages() {
 
 function slideSlide() {
 	imgHtml.src = imagesList[active];
+	imgHtml.style.width = '150px';
+	imgHtml.style.height = '100px';
 	active++;
 	if (active == imagesList.length) {
 		active = 0;

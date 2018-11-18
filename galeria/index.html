@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<title>Galeria</title>
+	<style>
+	.image-slide, .galerytwo img{
+		width: 150px;
+		height: 100px;
+	}
+	.imagesBig{
+		width: 300px;
+		height: 200px;
+	}
+	.galerytwo{
+		margin-top: 10px;
+	}
+	</style>
+</head>
+<body>
+
+
+	<h1>My galery</h1>
+	<div class="galery">
+		<img class="image-slide" src="" alt="" />
+		<br />
+		<button type="button" class="left" >Prev</button>
+		<button type="button" class="right" >Next</button>
+	</div>
+	<div class="galerytwo">
+		<img src="./images/img1.jpg" alt="image1">
+		<img src="./images/img2.jpg" alt="">
+		<img src="./images/img3.jpg" alt="">
+		<img src="./images/img4.jpg" alt="">
+		<img src="./images/img5.jpg" alt="">
+		<br />
+		<button type="button" onclick="showOne()" class="showone">Show One</button>
+		<button type="button" onclick="showAll()" class="showall">Show All</button>
+		<!-- <button type="button" class="showone">Show One</button> -->
+	</div>
+
+
+<script>
+let imagesList = ['./images/img1.jpg', './images/img2.jpg', './images/img3.jpg', './images/img4.jpg', './images/img5.jpg',];
+let imgHtml = document.querySelector('.image-slide');
+let active = 0;
+
+function showOne() {
+	let images = document.querySelectorAll('img');
+	for (let i = 0; i < images.length; i++) {
+		if (images[i].alt == "image1") {
+			console.log('text');
+		} else {
+			images[i].style.display = 'none';
+		}
+	}
+}
+
+function showAll() {
+	let imagesHidden = document.querySelectorAll('img');
+	for (let i = 0; i < imagesHidden.length; i++) {
+		if (images[i].alt != "image1") {
+			console.log('showAll');
+		} else {
+			images[i].style.display = '';
+		}
+	}
+}
+
+function slideSlide() {
+	imgHtml.src = imagesList[active];
+	active++;
+	if (active == imagesList.length) {
+		active = 0;
+	}
+	imgHtml.classList.add('test');
+}
+
+function addClass() {
+	let imageStyle = document.querySelectorAll('img');
+	for (let i = 0; i < imageStyle.length; i++) {
+		imageStyle[i].addEventListener('click', addClassToImg);
+	}
+} 
+
+function addClassToImg(event) {
+	// event.target.classList.add("imagesBig");
+	event.target.classList.toggle("imagesBig");
+}
+
+
+function changeSlide() {
+	if (this.className === 'right') {
+
+		active++;
+	} else if (this.className === 'left') {
+	// } else {
+		active--;
+	}
+	if (active < 0) active = imagesList.length -1;
+	else if(active == imagesList.length) active = 0;
+	imgHtml.src = imagesList[active];
+}
+
+let arrows = document.querySelectorAll('button');
+	for (let i = 0; i < arrows.length; i++) {
+		arrows[i].addEventListener('click', changeSlide);
+}
+
+slideSlide();
+addClass();
+changeSlide();
+
+</script>
+
+</body>
+</html>
