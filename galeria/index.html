@@ -39,15 +39,20 @@
 	</div>
 	<br />
 	<div class="findPhoto">
-		<input type="text" name="findPhoto" placeholder="Find Photo"> 
-		<button type="button">Find</button>
-	</div>
+		<input id="search" type="text" placeholder="Search images"/>
+		<button id="submit" onclick="findPhotos()">Find</button>
+		<div id="outputDiv"></div>
 
 
 <script>
 let imagesList = ['./images/img1.jpg', './images/img2.jpg', './images/img3.jpg', './images/img4.jpg', './images/img5.jpg',];
 let imgHtml = document.querySelector('.image-slide');
 let active = 0;
+
+
+function findPhotos() {
+	
+}
 
 function showOne() {
 	let images = document.querySelectorAll('img');

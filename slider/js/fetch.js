@@ -15,4 +15,3 @@ function jsonFlickrFeed(data) {
 }
 
 getPhotos();
-
