@@ -58,11 +58,10 @@ function showOne() {
 function showAll() {
 	let imagesHidden = document.querySelectorAll('img');
 	for (let i = 0; i < imagesHidden.length; i++) {
-		if (images[i].alt != "image1") {
+		if (imagesHidden[i].alt != "image1") {
 			console.log('showAll');
-		} else {
-			images[i].style.display = '';
-		}
+			imagesHidden[i].style.display = '';
+		} 
 	}
 }
 
